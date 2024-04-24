@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Col, Row, Stack,Form, Button, Alert } from "react-bootstrap"
 import { AuthContext } from "../context/AuthContext"
 // import { Form } from "react-router-dom"
@@ -24,11 +24,11 @@ const Register = () => {
                ...registerInfo,
                name:e.target.value
               })}/>
-              <Form.Control type="email" placeholder="Email"onChange={(e) => updateRegisterInfo({
+              <Form.Control type="email" placeholder="Email" onChange={(e) => updateRegisterInfo({
                ...registerInfo,
                email:e.target.value
               })}/>
-              <Form.Control type="password" placeholder="Password"onChange={(e) => updateRegisterInfo({
+              <Form.Control type="password" placeholder="Password" onChange={(e) => updateRegisterInfo({
                ...registerInfo,
                password:e.target.value
               })}/>
