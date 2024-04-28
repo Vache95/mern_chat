@@ -26,7 +26,7 @@ const registerUser = async (req, res) => {
 
         if (!validator.isStrongPassword(password)) return res.status(400).json("Passowrd must be a strong a passowrd...")
 
-        user = new userModel({ name, email, passowrd })
+        user = new userModel({ name, email, password })
 
         const salt = await bcrypt.genSalt(10)
 
@@ -46,7 +46,7 @@ const registerUser = async (req, res) => {
 }
 
 const loginUser = async (req, res) => {
-    const { email, passowrd } = req.body;
+    const { email, password } = req.body;
 
     try {
 
@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
 
         if (!user) return res.status(400).json("Invalid email or password...")
 
-        const isValidPassowrd = await bcrypt.compare(passowrd, user.password)
+        const isValidPassowrd = await bcrypt.compare(password, user.password)
 
         if (!isValidPassowrd) return res.status(400).json("Invalid email or password...")
 
@@ -95,4 +95,4 @@ const getUser = async (req, res) => {
         res.status(500).json(error);
     }
 }
-module.exports = { registerUser, loginUser, findUser,getUser }
+module.exports = { registerUser, loginUser, findUser, getUser }
