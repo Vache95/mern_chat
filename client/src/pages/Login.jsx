@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { Col, Row, Stack,Form, Button, Alert } from "react-bootstrap"
 import { AuthContext } from "../context/AuthContext"
-// import { Form } from "react-router-dom"
+
 
 
 const Login = () => {
+  
   const {
     updateLoginInfo,
     loginUser,
@@ -49,7 +50,6 @@ const Login = () => {
                 <p>{loginError?.message}</p>
             </Alert>
               }
-     
             </Stack>
             </Col>
         </Row>

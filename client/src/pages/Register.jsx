@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { Col, Row, Stack,Form, Button, Alert } from "react-bootstrap"
 import { AuthContext } from "../context/AuthContext"
-// import { Form } from "react-router-dom"
+
 
 
 const Register = () => {
+
   const {registerInfo,updateRegisterInfo,registerUser,registerError,isRegisterLoading
   } = useContext(AuthContext)
 
@@ -18,7 +19,6 @@ const Register = () => {
             <Col xs={6}>
             <Stack gap={3}>
               <h2>Register</h2>
-
 
               <Form.Control type="text" placeholder="Name" onChange={(e) => updateRegisterInfo({
                ...registerInfo,
@@ -37,7 +37,7 @@ const Register = () => {
               </Button>
                 {
                   registerError?.error && <Alert variant="danger">
-                  <p>{registerError?.error}</p>
+                  <p>{registerError?.message}</p>
               </Alert>
                 }
             </Stack>

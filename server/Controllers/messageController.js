@@ -1,13 +1,14 @@
 const messageModel = require('../Modules/messageModel')
-const message = require('../Modules/messageModel')
+
 
 //createMessage
 const createMessage = async (req, res) => {
-  const {chatId,senderId ,text} = req.body
+  const {chatId, senderId, text} = req.body
 
   const message = new messageModel({
     chatId,senderId,text
   })
+  
   try {
     const response = await message.save()
 

@@ -1,7 +1,7 @@
 export const baseUrl = 'http://localhost:5000/api'
 
 export const postRequest = async (url,body) => {
-  console.log(body,"body");
+
  const response =  await fetch(url,{
     method:'POST',
     headers:{
@@ -28,6 +28,7 @@ export const postRequest = async (url,body) => {
 
   return data
 }
+
 
 export const getRequest = async (url) => {
   const response = await fetch(url)

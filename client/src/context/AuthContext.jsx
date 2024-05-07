@@ -5,6 +5,7 @@ import { baseUrl, postRequest } from "../utils/services";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  
   const [user,setUser] = useState(null)
   const [registerError,setRegisterError] = useState(null)
   const [isRegisterLoading,setisRegisterLoading] = useState(false)
@@ -13,10 +14,12 @@ export const AuthContextProvider = ({ children }) => {
     email:'',
     password:'',
   })
+  
   const [loginInfo,setLoginInfo] = useState({
     email:'',
     password:'',
   })
+
   const [loginError,setLoginError] = useState(null)
   const [isLoginLoading,setisLoginLoading] = useState(false)
 
@@ -78,6 +81,7 @@ export const AuthContextProvider = ({ children }) => {
        localStorage.removeItem('User')
        setUser(null)
      },[])
+
 
     return <AuthContext.Provider value={{
         user,

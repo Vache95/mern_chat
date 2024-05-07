@@ -8,13 +8,13 @@ import ChatBox from "../components/chat/ChatBox"
 
 
 const Chat = () => {
+
   const {user} = useContext(AuthContext)
   const {userChats, 
     isUserChatsLoading,
-    userChatsError,
     updateCurrentChat
   } = useContext(ChatContext)
-    
+  
   return (
    <Container>
     <PotentialChats/>

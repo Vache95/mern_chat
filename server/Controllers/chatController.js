@@ -7,11 +7,12 @@ const createChat = async (req,res) => {
     const {firstId, secondId} = req.body
 
     try {
-        const chat = await chatModel.finOne({
+        const chat = await chatModel.findOne({
             members:{$all:[firstId, secondId]}
         })
 
         if(chat) return res.status(200).json(chat);
+
         const newChat = new chatModel({
             members: [firstId, secondId]
         })
@@ -40,8 +41,10 @@ const findUserChats = async (req,res) => {
     }
 }
 
+
 const findChat = async (req,res) => {
     const {firstId,secondId} = req.params
+    
     try {
         const chat = await chatModel.find({
             members:{$all:[firstId, secondId]}
